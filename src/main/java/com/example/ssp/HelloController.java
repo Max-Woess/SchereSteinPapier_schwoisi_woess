@@ -9,9 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 public class HelloController {
+    public HelloController(){
+    }
+
     //Generates Pick of the Computer
     //1...Rock
     //2...Paper
@@ -20,8 +26,22 @@ public class HelloController {
 
         return (int)(Math.random() * 3 - 1 + 1) + 1;
     }
+    Image backgrnd = new Image("background.png");
+    Image paperNol = new Image("PaperNOL.png");
+    Image paperOL = new Image("PaperOL.png");
+    Image pickNOH = new Image("PickNOH.png");
+    Image pickOH = new Image("PickOH.png");
+    Image rockNOL = new Image("RockNOL.png");
+    Image rockOL = new Image("RockOL.png");
+    Image schereNOL = new Image("SchereNOL.png");
+    Image schereOL = new Image("SchereOL.png");
+    Image wl_loss = new Image("wl_loss.png");
+    Image wl_win = new Image("wl_win.png");
 
-    //8 imagviews, 4Buttons, VBox
+
+
+
+
     @FXML
     VBox vbox;
     @FXML
@@ -37,27 +57,27 @@ public class HelloController {
     @FXML
     Button select;
     @FXML
-    ImageView scissoroffimg;
+    ImageView scissoroffimg= new ImageView(schereNOL);
     @FXML
-    ImageView scissoronimg;
+    ImageView scissoronimg =new ImageView(schereOL);
     @FXML
-    ImageView rockoffimg;
+    ImageView rockoffimg = new ImageView(rockNOL);
     @FXML
-    ImageView rockonimg;
+    ImageView rockonimg = new ImageView(rockOL);
     @FXML
-    ImageView paperoffimg;
+    ImageView paperoffimg = new ImageView(paperNol);
     @FXML
-    ImageView paperonimg;
+    ImageView paperonimg= new ImageView(paperOL);
     @FXML
-    ImageView lossimg;
+    ImageView lossimg= new ImageView(wl_loss);
     @FXML
-    ImageView winimg;
+    ImageView winimg = new ImageView(wl_win);
     @FXML
-    ImageView coinimg;
+    ImageView coinimg= new ImageView();
+
+
     @FXML
-    ImageView backgroundimg;
-    @FXML
-    Label yourpick;
+    Label yourpick ;
     @FXML
     Label compick;
     @FXML
