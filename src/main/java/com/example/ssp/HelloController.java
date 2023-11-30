@@ -16,9 +16,9 @@ public class HelloController {
     //1...Rock
     //2...Paper
     //3...Scissor
-    public int ComputerPick(){
+    public int ComputerPick() {
 
-        return (int)(Math.random() * 3 - 1 + 1) + 1;
+        return (int) (Math.random() * 3 - 1 + 1) + 1;
     }
 
     //8 imagviews, 4Buttons, VBox
@@ -64,15 +64,6 @@ public class HelloController {
     Label coincount;
 
 
-
-
-
-
-
-
-
-
-
-
 }
+
 
