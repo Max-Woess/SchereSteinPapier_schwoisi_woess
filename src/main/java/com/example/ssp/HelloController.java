@@ -3,10 +3,13 @@ package com.example.ssp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
+
 
 public class HelloController {
     //Generates Pick of the Computer
@@ -17,6 +20,7 @@ public class HelloController {
 
         return (int)(Math.random() * 3 - 1 + 1) + 1;
     }
+
     //8 imagviews, 4Buttons, VBox
     @FXML
     VBox vbox;
@@ -71,3 +75,4 @@ public class HelloController {
 
 
 }
+
