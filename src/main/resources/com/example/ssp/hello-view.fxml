@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -46,6 +47,16 @@
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>
+               <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../Images/SchereNOL.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../Images/SchereOL.png" />
+                  </image>
+               </ImageView>
             </children>
          </GridPane>
          <Button fx:id="select" layoutX="237.0" layoutY="351.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="168.0" visible="false">
@@ -72,6 +83,7 @@
                <Font size="24.0" />
             </font>
          </Label>
+         <ProgressBar layoutX="220.0" layoutY="426.0" prefWidth="200.0" progress="0.0" />
       </children>
    </AnchorPane>
 </VBox>

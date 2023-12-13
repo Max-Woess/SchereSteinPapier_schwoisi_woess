@@ -3,10 +3,13 @@ package com.example.ssp;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.channels.Pipe;
 import java.util.Scanner;
 
 public class HelloApplication extends Application {
@@ -19,44 +22,18 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
-        int choice = playerPick();
+
+        HelloController c = fxmlLoader.getController();
+        c.main();
     }
 
     public static void main(String[] args) {
         launch();
 
 
-
-
-
     }
 
-    public int playerPick(){
-        String pick = "0";
-        Scanner scanner = new Scanner(System.in);
-        do{
-            System.out.println("--------------------------------------------------------------------");
-            System.out.println("THIS IS A TEST FUNCTION - THIS DOES NOT REPLICATE THE FINAL GAME");
-            System.out.println("--------------------------------------------------------------------");
-            System.out.println("Chose the pick you want and type out one of the following commands: ");
-            System.out.println(" -- 'rock' -- ");
-            System.out.println(" -- 'paper' -- ");
-            System.out.println(" -- 'scissors' -- ");
-            System.out.println(" -- 'exit' -- ");
-            System.out.println(":");
-            pick = scanner.nextLine();
-            switch (pick){
-                case "rock":
-                    System.out.println(1);
-                    return 1;
-                case "paper":
-                    System.out.println(2);
-                    return 2;
-                case "scissors":
-                    System.out.println(3);
-                    return 3;
-            }
-        }while(pick != "exit");
-        return 0;
-    }
+
 }
+
+
