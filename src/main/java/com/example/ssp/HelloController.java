@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
@@ -13,39 +14,37 @@ import java.util.Scanner;
 public class HelloController {
 
 
-    //8 imagviews, 4Buttons, VBox
-    @FXML
-    VBox vbox;
-    @FXML
-    Button scissor;
-    @FXML
-    Button rock;
-    @FXML
-    Button paper;
-    @FXML
-    Button win;
-    @FXML
-    Button lose;
+
     @FXML
     Button select;
     @FXML
-    ImageView scissoroffimg;
+    ImageView scissorsimg;
+
     @FXML
-    ImageView scissoronimg;
+    ImageView rockimg;
+
     @FXML
-    ImageView rockoffimg;
+    ImageView paperimg;
+
     @FXML
-    ImageView rockonimg;
+    ImageView scissorsimgh;
+
     @FXML
-    ImageView paperoffimg;
+    ImageView rockimgh;
+
     @FXML
-    ImageView paperonimg;
+    ImageView paperimgh;
+
+    @FXML
+    ImageView pickimg;
+    @FXML
+    ImageView pickimgh;
+
+
     @FXML
     ImageView lossimg;
     @FXML
     ImageView winimg;
-    @FXML
-    ImageView coinimg;
     @FXML
     ImageView backgroundimg;
     @FXML
@@ -55,38 +54,72 @@ public class HelloController {
     @FXML
     Label coincount;
 
+    int playerPick;
 
-    public void main(){
-        gameLoop();
+
+
+
+    public void scissorsHover(){
+        scissorsimgh.setVisible(true);
+    }
+    public void scissorsHoverExit(){
+        scissorsimgh.setVisible(false);
+    }
+    public void rockHover(){
+        rockimgh.setVisible(true);
+    }
+    public void rockHoverExit(){
+        rockimgh.setVisible(false);
     }
 
-    public void gameLoop() {
-        int p = 0;
-        int pcp;
-
-        do {
-            p = playerPick();
-            pcp = ComputerPick();
-            checkWin(p, pcp);
-        } while (p != 0);
-        System.out.println("exiting....");
-
-
+    public void paperHover(){
+        paperimgh.setVisible(true);
+    }
+    public void paperExit(){
+        paperimgh.setVisible(false);
     }
 
-    public int checkWin(int playerPick, int computerPick) {
-        // 10 PlayerWin
-        // 20 PlayerLoss
-        // 30 Draw
+    public void pickHover(){
+        pickimgh.setVisible(true);
+    }
+    public void pickHoverExit(){
+        pickimgh.setVisible(false);
+    }
+
+
+
+
+
+
+
+
+
+    public void checkwin(int playerPick) {
+        int computerPick = ComputerPick();
         if (playerPick == computerPick) {
             playerD();
-            return 30;
+            return;
         } else if (playerPick == computerPick + 1 || playerPick == computerPick - 2) {
             playerW();
-            return 10;
+            return;
         }
         playerL();
-        return 20;
+        return;
+    }
+
+
+
+    public void pick(){
+        checkwin(playerPick);
+    }
+    public void rock(){
+        playerPick = 1;
+    }
+    public void paper(){
+        playerPick = 2;
+    }
+    public void scissors(){
+        playerPick = 3;
     }
 
     public void playerW() {
@@ -113,38 +146,6 @@ public class HelloController {
     }
 
 
-    public int playerPick() {
-        String pick = "null";
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("THIS IS A TEST FUNCTION - THIS DOES NOT REPLICATE THE FINAL GAME");
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("Chose the pick you want and type out one of the following commands: ");
-        System.out.println(" -- 'rock' -- ");
-        System.out.println(" -- 'paper' -- ");
-        System.out.println(" -- 'scissors' -- ");
-        System.out.println(" -- 'exit' -- ");
-        System.out.println(":");
-        pick = scanner.nextLine();
-
-        switch (pick) {
-            case "rock":
-                System.out.println(1);
-                return 1;
-            case "paper":
-                System.out.println(2);
-                return 2;
-            case "scissors":
-                System.out.println(3);
-                return 3;
-            case "exit":
-                return 0;
-            default:
-                System.out.println("Invalid input!");
-        }
-        return 4;
-    }
 
 
     public boolean winCheck() {

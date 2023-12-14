@@ -24,7 +24,8 @@ public class HelloApplication extends Application {
         stage.setResizable(false);
 
         HelloController c = fxmlLoader.getController();
-        c.main();
+
+
     }
 
     public static void main(String[] args) {

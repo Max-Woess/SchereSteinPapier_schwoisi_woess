@@ -35,24 +35,32 @@
              <RowConstraints minHeight="96.0" prefHeight="96.0" vgrow="SOMETIMES" />
            </rowConstraints>
             <children>
-               <Button fx:id="scissor" alignment="CENTER" layoutX="96.0" layoutY="96.0" maxHeight="96.0" maxWidth="96.0" minHeight="96.0" minWidth="96.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="96.0" text="Schere" visible="false">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor></Button>
-               <Button fx:id="rock" alignment="CENTER" maxHeight="96.0" maxWidth="96.0" minHeight="96.0" minWidth="96.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="96.0" text="Stein" visible="false" GridPane.columnIndex="1">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor></Button>
-               <Button fx:id="paper" alignment="CENTER" maxHeight="96.0" maxWidth="96.0" minHeight="96.0" minWidth="96.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="96.0" text="Papier" visible="false" GridPane.columnIndex="2">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor></Button>
-               <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="paperimg" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#paper" onMouseEntered="#paperHover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                  <image>
+                     <Image url="@../../../Images/PaperNOL.png" />
+                  </image>
+               </ImageView>
+               <ImageView fx:id="rockimg" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#rock" onMouseEntered="#rockHover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <image>
+                     <Image url="@../../../Images/RockNOL.png" />
+                  </image>
+               </ImageView>
+               <ImageView fx:id="rockimgh" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#rock" onMouseExited="#rockHoverExit" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+                  <image>
+                     <Image url="@../../../Images/RockOL.png" />
+                  </image>
+               </ImageView>
+               <ImageView fx:id="paperimgh" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#paper" onMouseExited="#paperExit" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+                  <image>
+                     <Image url="@../../../Images/PaperOL.png" />
+                  </image>
+               </ImageView>
+               <ImageView fx:id="scissorsimg" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#paper" onMouseEntered="#scissorsHover" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../Images/SchereNOL.png" />
                   </image>
                </ImageView>
-               <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="scissorsimgh" fitHeight="96.0" fitWidth="96.0" onMouseExited="#scissorsHoverExit" pickOnBounds="true" preserveRatio="true" visible="false">
                   <image>
                      <Image url="@../../../Images/SchereOL.png" />
                   </image>
@@ -84,6 +92,16 @@
             </font>
          </Label>
          <ProgressBar layoutX="220.0" layoutY="426.0" prefWidth="200.0" progress="0.0" />
+         <ImageView fx:id="pickimg" fitHeight="77.0" fitWidth="135.0" layoutX="253.0" layoutY="336.0" onMouseClicked="#pick" onMouseEntered="#pickHover" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../Images/PickNOH.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="pickimgh" fitHeight="77.0" fitWidth="135.0" layoutX="253.0" layoutY="336.0" onMouseClicked="#pick" onMouseExited="#pickHoverExit" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+               <Image url="@../../../Images/PickOH.png" />
+            </image>
+         </ImageView>
       </children>
    </AnchorPane>
 </VBox>
