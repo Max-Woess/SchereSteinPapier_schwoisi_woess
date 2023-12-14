@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
@@ -23,6 +21,11 @@
          <ImageView fx:id="backgroundimg" fitHeight="480.0" fitWidth="680.0" preserveRatio="true" smooth="false">
             <image>
                <Image url="@../../../Images/backgrnd.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="lossimg" layoutX="432.0" layoutY="327.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" visible="false">
+            <image>
+               <Image url="@../../../Images/wl_loss.png" />
             </image>
          </ImageView>
          <GridPane hgap="48.0" layoutX="129.0" layoutY="177.0">
@@ -55,38 +58,34 @@
                      <Image url="@../../../Images/PaperOL.png" />
                   </image>
                </ImageView>
-               <ImageView fx:id="scissorsimg" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#paper" onMouseEntered="#scissorsHover" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="scissorsimg" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#scissors" onMouseEntered="#scissorsHover" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../Images/SchereNOL.png" />
                   </image>
                </ImageView>
-               <ImageView fx:id="scissorsimgh" fitHeight="96.0" fitWidth="96.0" onMouseExited="#scissorsHoverExit" pickOnBounds="true" preserveRatio="true" visible="false">
+               <ImageView fx:id="scissorsimgh" fitHeight="96.0" fitWidth="96.0" onMouseClicked="#scissors" onMouseExited="#scissorsHoverExit" pickOnBounds="true" preserveRatio="true" visible="false">
                   <image>
                      <Image url="@../../../Images/SchereOL.png" />
                   </image>
                </ImageView>
             </children>
          </GridPane>
-         <Button fx:id="select" layoutX="237.0" layoutY="351.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="168.0" visible="false">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
          <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="46.0" layoutY="359.0" preserveRatio="true" smooth="false">
             <image>
                <Image url="@../../../Images/coin.png" />
             </image>
          </ImageView>
-         <Label layoutX="128.0" layoutY="370.0" text="000">
+         <Label fx:id="coincount" layoutX="135.0" layoutY="371.0" text="0">
             <font>
                <Font name="Verdana Bold" size="34.0" />
             </font>
          </Label>
-         <Label layoutX="361.0" layoutY="292.0" text="Your Pick: ">
+         <Label fx:id="yourpick" layoutX="110.0" layoutY="299.0" text="Your Pick: ">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label layoutX="110.0" layoutY="292.0" prefHeight="35.0" prefWidth="125.0" text="Enemy Pick:">
+         <Label fx:id="compick" layoutX="358.0" layoutY="299.0" prefHeight="35.0" prefWidth="254.0" text="Enemy Pick:">
             <font>
                <Font size="24.0" />
             </font>
@@ -100,6 +99,11 @@
          <ImageView fx:id="pickimgh" fitHeight="77.0" fitWidth="135.0" layoutX="253.0" layoutY="336.0" onMouseClicked="#pick" onMouseExited="#pickHoverExit" pickOnBounds="true" preserveRatio="true" visible="false">
             <image>
                <Image url="@../../../Images/PickOH.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="winimg" layoutX="432.0" layoutY="328.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" visible="false">
+            <image>
+               <Image url="@../../../Images/wl_win.png" />
             </image>
          </ImageView>
       </children>
