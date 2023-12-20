@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.util.Scanner;
 
 
@@ -56,35 +57,87 @@ public class HelloController {
     int coins = 0;
 
 
+
+    String pathPick = "src/main/resources/sounds/pick.wav";
+    File filePick = new File(pathPick);
+    javafx.scene.media.Media mediaPick = new javafx.scene.media.Media(filePick.toURI().toString());
+    javafx.scene.media.MediaPlayer mediaPlayerPick = new javafx.scene.media.MediaPlayer(mediaPick);
+
+
+    String pathWin = "src/main/resources/sounds/win.wav";
+    File fileWin = new File(pathWin);
+    javafx.scene.media.Media mediaWin = new javafx.scene.media.Media(fileWin.toURI().toString());
+    javafx.scene.media.MediaPlayer mediaPlayerWin = new javafx.scene.media.MediaPlayer(mediaWin);
+
+    String pathLoss = "src/main/resources/sounds/loss.wav";
+    File fileLoss = new File(pathLoss);
+    javafx.scene.media.Media mediaLoss = new javafx.scene.media.Media(fileLoss.toURI().toString());
+    javafx.scene.media.MediaPlayer mediaPlayerLoss = new javafx.scene.media.MediaPlayer(mediaLoss);
+
+    String pathSelect = "src/main/resources/sounds/rpsselect.wav";
+    File fileSelect = new File(pathSelect);
+    javafx.scene.media.Media mediaSelect = new javafx.scene.media.Media(fileSelect.toURI().toString());
+    javafx.scene.media.MediaPlayer mediaPlayerSelect = new javafx.scene.media.MediaPlayer(mediaSelect);
+
+
+
+
+
+
+
+    void playerSelect(){
+        mediaPlayerSelect.setVolume(2.00);
+        mediaPlayerSelect.play();
+    }
+
+
+
+
     public void scissorsHover(){
         scissorsimgh.setVisible(true);
+        mediaPlayerPick.setVolume(5.00);
+        mediaPlayerPick.play();
         compick.setText("Enemy Pick: ");
     }
     public void scissorsHoverExit(){
         scissorsimgh.setVisible(false);
-
+        mediaPlayerLoss.stop();
+        mediaPlayerSelect.stop();
+        mediaPlayerPick.stop();
     }
     public void rockHover(){
         rockimgh.setVisible(true);
+        mediaPlayerPick.setVolume(5.00);
+        mediaPlayerPick.play();
         compick.setText("Enemy Pick: ");
     }
     public void rockHoverExit(){
         rockimgh.setVisible(false);
+        mediaPlayerLoss.stop();
+        mediaPlayerSelect.stop();
+        mediaPlayerPick.stop();
     }
 
     public void paperHover(){
         paperimgh.setVisible(true);
+        mediaPlayerPick.setVolume(5.00);
+        mediaPlayerPick.play();
         compick.setText("Enemy Pick: ");
     }
     public void paperExit(){
         paperimgh.setVisible(false);
+        mediaPlayerPick.stop();
+        mediaPlayerPick.stop();
     }
 
     public void pickHover(){
+        mediaPlayerPick.setVolume(5.00);
+        mediaPlayerPick.play();
         pickimgh.setVisible(true);
     }
     public void pickHoverExit(){
         pickimgh.setVisible(false);
+        mediaPlayerPick.stop();
     }
 
 
@@ -101,6 +154,8 @@ public class HelloController {
 
 
     public void resetWinLoss(){
+        mediaPlayerWin.stop();
+        mediaPlayerLoss.stop();
         winimg.setVisible(false);
         lossimg.setVisible(false);
     }
@@ -108,19 +163,23 @@ public class HelloController {
 
     public void pick(){
         resetWinLoss();
+
         checkwin(playerPick);
     }
     public void rock(){
+        playerSelect();
         playerPick = 1;
         resetWinLoss();
         yourpick.setText("Your Pick: Rock");
     }
     public void paper(){
+        playerSelect();
         playerPick = 2;
         resetWinLoss();
         yourpick.setText("Your Pick: Paper");
     }
     public void scissors(){
+        playerSelect();
         playerPick = 3;
         resetWinLoss();
         yourpick.setText("Your Pick: Scissors");
@@ -128,6 +187,8 @@ public class HelloController {
 
     public void playerW() {
         System.out.println("Win!");
+        mediaPlayerWin.setVolume(2.00);
+        mediaPlayerWin.play();
         coins++;
         updateCoins();
         winimg.setVisible(true);
@@ -135,6 +196,8 @@ public class HelloController {
 
     public void playerL() {
         System.out.println("Loss!");
+        mediaPlayerLoss.setVolume(10.00);
+        mediaPlayerLoss.play();
         coins--;
         updateCoins();
         lossimg.setVisible(true);

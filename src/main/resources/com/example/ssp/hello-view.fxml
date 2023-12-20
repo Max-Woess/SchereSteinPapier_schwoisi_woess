@@ -101,7 +101,7 @@
                <Image url="@../../../Images/PickOH.png" />
             </image>
          </ImageView>
-         <ImageView fx:id="winimg" layoutX="432.0" layoutY="328.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" visible="false">
+         <ImageView fx:id="winimg" layoutX="432.0" layoutY="328.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
             <image>
                <Image url="@../../../Images/wl_win.png" />
             </image>

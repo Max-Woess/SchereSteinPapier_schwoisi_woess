@@ -8,6 +8,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.channels.Pipe;
 import java.util.Scanner;
@@ -24,7 +25,13 @@ public class HelloApplication extends Application {
         stage.setResizable(false);
 
         HelloController c = fxmlLoader.getController();
-
+        String path = "src/main/resources/sounds/music.mp3";
+        File file = new File(path);
+        javafx.scene.media.Media media = new javafx.scene.media.Media(file.toURI().toString());
+        javafx.scene.media.MediaPlayer mediaPlayer = new javafx.scene.media.MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(javafx.scene.media.MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
 
     }
 
